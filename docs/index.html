@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echo AI Systems - Digital Marketing Research Portal</title>
+    <meta name="description" content="Professional digital marketing research and competitive analysis for local service businesses by Echo AI Systems">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #0f172a;
+            --dark-secondary: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--gradient-dark);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -300px;
+            right: -300px;
+            animation: float 25s infinite ease-in-out;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -200px;
+            animation: float 30s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 100px) rotate(90deg); }
+            50% { transform: translate(-100px, 50px) rotate(180deg); }
+            75% { transform: translate(50px, -100px) rotate(270deg); }
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        /* Services Section */
+        .services {
+            background: white;
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            margin: -3rem auto 4rem;
+            max-width: 1200px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            z-index: 10;
+        }
+
+        .services-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .services-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-description {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .portfolio-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .portfolio-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .company-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .portfolio-info h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-date {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .portfolio-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .portfolio-stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .portfolio-description {
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .portfolio-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            margin: 4rem auto;
+            max-width: 1200px;
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+        }
+
+        .contact-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+        }
+
+        .contact-description {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+        }
+
+        .contact-item strong {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: var(--gray);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Echo AI Systems</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="Company-Research/">Research</a></li>
+                    <li><a href="https://echoaisystem.com" target="_blank">Website</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Digital Marketing Research Portal</h1>
+        <p>Comprehensive competitive analysis and digital presence research for local service businesses. 
+        Get the data-driven insights you need to dominate your market.</p>
+        <div class="hero-cta">
+            <a href="Company-Research/" class="btn btn-primary">View Research Dashboard</a>
+            <a href="mailto:echoaisystems@gmail.com" class="btn btn-secondary">Request Analysis</a>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services" id="services">
+        <h2 class="services-title">What We Research</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3 class="service-title">Digital Footprint Analysis</h3>
+                <p class="service-description">
+                    Complete assessment of your current online presence across all platforms, 
+                    with scored metrics and specific improvement recommendations.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3 class="service-title">SEO & Technical Audit</h3>
+                <p class="service-description">
+                    Deep technical analysis of website performance, search visibility, 
+                    and on-page optimization opportunities.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3 class="service-title">Social Media Discovery</h3>
+                <p class="service-description">
+                    Find and analyze all social media accounts, engagement metrics, 
+                    and content strategies across platforms.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏆</div>
+                <h3 class="service-title">Competitive Intelligence</h3>
+                <p class="service-description">
+                    Comprehensive analysis of local competitors, their strengths, weaknesses, 
+                    and market positioning strategies.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3 class="service-title">Local Search Analysis</h3>
+                <p class="service-description">
+                    Google Business Profile optimization, local citations, 
+                    and market opportunity identification.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3 class="service-title">Growth Strategy</h3>
+                <p class="service-description">
+                    90-day action plans with specific tactics and expected results 
+                    based on research findings.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="portfolio-title">Research Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <div class="portfolio-header">
+                    <div class="company-icon">SR</div>
+                    <div class="portfolio-info">
+                        <h3>SR Commercial Roofing</h3>
+                        <div class="portfolio-date">Completed: August 7, 2025</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-stats">
+                    <div class="portfolio-stat">
+                        <div class="stat-number">4.2</div>
+                        <div class="stat-label">Overall Score</div>
+                    </div>
+                    <div class="portfolio-stat">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Opportunities</div>
+                    </div>
+                    <div class="portfolio-stat">
+                        <div class="stat-number">90</div>
+                        <div class="stat-label">Day Plan</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-description">
+                    Wisconsin-based commercial roofing contractor. Research revealed critical gaps 
+                    in Google Business Profile and content strategy, with strong opportunities 
+                    for local market dominance.
+                </div>
+                
+                <div class="portfolio-actions">
+                    <a href="Company-Research/sr-commercial-roofing-report.html" class="btn btn-primary btn-small">View Report</a>
+                    <a href="Company-Research/" class="btn btn-secondary btn-small">Dashboard</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card" style="opacity: 0.7; border: 2px dashed rgba(255, 255, 255, 0.3);">
+                <div class="portfolio-header">
+                    <div class="company-icon" style="background: var(--gray);">+</div>
+                    <div class="portfolio-info">
+                        <h3>Your Business Here</h3>
+                        <div class="portfolio-date">Next Research Project</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-description">
+                    Ready to discover your digital marketing opportunities? 
+                    Our comprehensive research process takes 3-5 business days 
+                    and delivers actionable insights for immediate implementation.
+                </div>
+                
+                <div class="portfolio-actions">
+                    <a href="mailto:echoaisystems@gmail.com?subject=Research Request" class="btn btn-primary btn-small">Request Analysis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <h2 class="contact-title">Ready to Research Your Competition?</h2>
+        <p class="contact-description">
+            Get the comprehensive digital marketing intelligence you need to outperform 
+            your local competitors and capture more market share.
+        </p>
+        
+        <div class="hero-cta">
+            <a href="mailto:echoaisystems@gmail.com?subject=Company Research Request" class="btn btn-primary">Start Research Project</a>
+            <a href="Company-Research/" class="btn btn-secondary">View Dashboard</a>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <strong>Website:</strong> echoaisystem.com
+            </div>
+            <div class="contact-item">
+                <strong>Email:</strong> echoaisystems@gmail.com
+            </div>
+            <div class="contact-item">
+                <strong>Turnaround:</strong> 3-5 business days
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Echo AI Systems. Professional Digital Marketing Research & Strategy.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.7;">Helping small businesses get found online, attract more customers, and grow faster.</p>
+    </footer>
+</body>
+</html>
